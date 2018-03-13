@@ -7,38 +7,10 @@ set nocompatible
 set autoindent
 set smartindent
 set incsearch
-set ignorecase
-set showmatch
 set shortmess+=c
-set textwidth=80
-highligh ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-set noswapfile
-
-set wildmenu
-set wildignorecase
-set wildmode=list:longest
-set wildignore+=.hg,.git,.svn
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
-set path=.,**
 
 " Don't show a ~ for blank lines
 hi NonText ctermfg=white
-
-let g:myLang = 0
-let g:myLangList = ['nospell', 'de_de', 'en_us']
-
-" spellchecker de/en
-function! MySpellLang()
-		"loop through languages
-		if g:myLang == 0 | setlocal nospell | endif
-		if g:myLang == 1 | let &l:spelllang = g:myLangList[g:myLang] | setlocal spell | endif
-		if g:myLang == 2 | let &l:spelllang = g:myLangList[g:myLang] | setlocal spell | endif
-		echomsg 'language:' g:myLangList[g:myLang]
-		let g:myLang = g:myLang + 1
-		if g:myLang >= len(g:myLangList) | let g:myLang = 0 | endif
-endfunction
-map <F7> :<C-U>call MySpellLang()<CR>
 
 let mapleader = ","
 nnore <Leader>r :source ~/.vimrc<CR>
@@ -48,8 +20,7 @@ nnore <Leader>Q :q!<CR>
 
 nnore <Leader>p :set paste!<CR>
 nnore <Leader>v <C-S-v>
-nnore <Leader><Space> :nohls<CR>
-inore  <right>
+inore <Leader>v <C-S-v>
 
 nnore tp :set paste!<CR>
 
@@ -61,12 +32,12 @@ nnore <Right> :echo 'Arrow keys are for noobs'<CR>
 nnore <PAGEUP> <C-u>
 nnore <PAGEDOWN> <C-d>
 
+
 nnore <Leader>m :call MinimalMode()<CR>
 nnore <Leader>n :call NormalMode()<CR>
 
 function! MinimalMode()
 	set nonumber 
-	set norelativenumber
 	set noshowmode
 	set noruler
 	set laststatus=0
@@ -104,17 +75,10 @@ function! VimOptions()
 	iab func function!<CR>endfunction<Esc>kA
 endfunction
 
-autocmd filetype markdown call MarkdownOptions()
-function! MarkdownOptions()
-    set tabstop=4
-	set noexpandtab
-	inoreab _0 ₀
-	inoreab pi π
-	inoreab lambda λ
-	inoreab alpha α
-	inoreab beta β
-	inoreab theta θ
-	inoreab .M ·
+
+autocmd filetype c call COptions()
+function! COptions()
+	set tabstop=8
 endfunction
 
 autocmd filetype python call PythonOptions()
@@ -149,3 +113,7 @@ let g:syntastic_quiet_messages = {'type': 'style'}
 ab löä derpaulito@gmail.com
 ab opü pkauf@physik.hu-berlin.de
 ab huzb Huboldt-Universität zu Berlin
+ab lambda λ
+ab alpha α
+ab beta β
+ab theta θ
