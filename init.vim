@@ -12,9 +12,6 @@ set ignorecase
 set spell
 set textwidth=80
 
-" Don't show a ~ for blank lines
-hi NonText ctermfg=white
-
 let mapleader = ","
 nnore <Leader>r :source ~/.vimrc<CR>
 nnore <Leader>w :w<CR>
@@ -76,6 +73,7 @@ function! Eatchar(pat)
       return (c =~ a:pat) ? '' : c
 endfunction
 
+colorscheme iawriter
 " Make 81st column stand out
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
@@ -108,6 +106,12 @@ function! TexOptions()
 	set tabstop=4
     map <F5> :w <CR> :!pdflatex %<CR>
 endfunction
+
+autocmd filetype matlab call MatlabOptions()
+function! MatlabOptions()
+		set tabstop=4 softtabstop=0 shiftwidth=4 smarttab
+endfunction
+
 
 autocmd BufWritePre,BufRead,BufNew *.asm :set filetype=nasm
 autocmd filetype nasm call AsmOptions()
