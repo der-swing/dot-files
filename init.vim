@@ -131,8 +131,4 @@ let g:syntastic_quiet_messages = {'type': 'style'}
 
 " abkürzungen
 
-iab löä derpaulito@gmail.com
-iab l;; derpaulito@gmail.com
-iab opü pkauf@physik.hu-berlin.de
-iab p[[ pkauf@physik.hu-berlin.de
 iab huzb Huboldt-Universität zu Berlin
