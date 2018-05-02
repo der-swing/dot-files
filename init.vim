@@ -13,7 +13,7 @@ set spell
 set textwidth=80
 
 let mapleader = ","
-nnore <Leader>r :source ~/.vimrc<CR>
+nnore <Leader>r :source $MYVIMRC<CR>
 nnore <Leader>w :w<CR>
 nnore <Leader>q :wq<CR>
 nnore <Leader>Q :q!<CR>
