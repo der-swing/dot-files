@@ -129,6 +129,3 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages = {'type': 'style'}
 
-" abkürzungen
-
-iab huzb Huboldt-Universität zu Berlin
